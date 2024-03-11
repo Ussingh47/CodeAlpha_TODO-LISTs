@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p class=" backstayle">
+        Create TO DO LIST and track daily life style... 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil nobis eos repellendus asperiores Lorem ipsum dolor sit amet,
+         consectetur adipisicing elit. Nihil nobis eos repellendus asperiores nulla fugit dignissimos suscipit aliquam dolore. Ipsa harum 
+         inventore laudantium consequatur evenietLorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil nobis eos repellendus
+          asperiores nulla fugit dignissimos suscipit aliquam dolore. Ipsa harum inventore 
+        laudantium consequatur eveniet blanditiis magni commodi iure doloribus.Lorem ipsum dolor sit amet, consectetur adipisicing 
+        elit. Nihil nobis eos repellendus asperiores nulla fugit dignissimos suscipit aliquam dolore. Ipsa harum inventore laudantium
+        consequatur eveniet blanditiis magni
+         commodi iure doloribus. blanditiis magni commodi iure doloribus.nulla fugit dignissimos suscipit aliquam dolore.
+          Ipsa harum inventore laudantium consequatur eveniet blanditiis magni commodi iure doloribus.
+    </p>
+    <div class="container">
+       
+        <div class="box">
+            <h2>TO DO List</h2>
+            <input type="text" placeholder="Write  here..." id="inputBx"/>
+            <ul id="list"></ul> 
+            
+
+        </div>
+
+    </div>
+    <script>
+        let inputBx = document.querySelector("#inputBx");
+        let list = document.querySelector("#list");
+
+        inputBx.addEventListener("keyup", function(event){
+            if(event.key == "Enter"){
+                addItem(this.value)
+                this.value = " "
+            }
+        })
+
+        let addItem = (inputBx) => {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `${inputBx}<i>` ;
+                listItem.addEventListener('click', function(){
+                    this.classList.toggle('done');
+                })
+
+                listItem.querySelector("i").addEventListener('click',function() {
+                    
+                   listItem.remove();
+                })
+
+                list.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
